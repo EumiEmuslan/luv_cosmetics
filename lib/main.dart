@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'root.dart'; // start at welcome screen
+import 'root.dart'; //start ng screen
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -8,7 +8,7 @@ void main() async {
   await Supabase.initialize(
     url: 'https://jwqwmbqygediwluoimmn.supabase.co',
     publishableKey:
-        'sb_publishable_LVIpIBg4ppEjlS2GgRCidw_VStHtQpp', // ✅ correct
+        'sb_publishable_LVIpIBg4ppEjlS2GgRCidw_VStHtQpp', //credentials from supabase
   );
 
   runApp(const MyApp());
@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: const Root(), // 👈 starts at welcome screen
+      home: const Root(), //welcome screen
     );
   }
 }

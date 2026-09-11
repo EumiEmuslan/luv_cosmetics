@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'history_manager.dart';
 import 'productmodel.dart';
-import 'productdetailview.dart'; // 👈 import your detail page
+import 'productdetailview.dart';
 
 class HistoryPage extends StatefulWidget {
   const HistoryPage({super.key});

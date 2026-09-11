@@ -140,8 +140,8 @@ class _HomePageState extends State<HomePage> {
       body: AnimatedContainer(
         duration: const Duration(milliseconds: 300),
         transform: Matrix4.identity()
-          ..translate(_isDrawerOpen ? 200.0 : 0.0) // shift right
-          ..scale(_isDrawerOpen ? 0.9 : 1.0), // shrink slightly
+          ..translate(_isDrawerOpen ? 200.0 : 0.0)
+          ..scale(_isDrawerOpen ? 0.9 : 1.0),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

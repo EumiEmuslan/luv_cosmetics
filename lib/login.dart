@@ -64,7 +64,7 @@ class _LoginPageState extends State<LoginPage> {
       if (response.user != null) {
         await _saveRememberMe();
 
-        if (!mounted) return; // 👈 guard
+        if (!mounted) return; //guard
 
         ScaffoldMessenger.of(
           context,
@@ -73,16 +73,16 @@ class _LoginPageState extends State<LoginPage> {
         Navigator.pushAndRemoveUntil(
           context,
           MaterialPageRoute(builder: (context) => const MainNavigation()),
-          (route) => false, // 👈 removes all previous routes
+          (route) => false, // removes all previous routes
         );
       } else {
-        if (!mounted) return; // 👈 guard
+        if (!mounted) return; //  guard
         ScaffoldMessenger.of(
           context,
         ).showSnackBar(const SnackBar(content: Text('Login failed')));
       }
     } catch (e) {
-      if (!mounted) return; // 👈 guard
+      if (!mounted) return; // guard
       final errorMsg = e.toString().contains('Email not confirmed')
           ? 'Please confirm your email before logging in.'
           : 'Error: $e';
