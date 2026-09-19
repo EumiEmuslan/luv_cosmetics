@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:luv_cosmetics/cart_page.dart';
 import 'homepage.dart';
-import 'orders.dart';
+import 'orders_page.dart';
 
 class MainNavigation extends StatefulWidget {
   const MainNavigation({super.key});

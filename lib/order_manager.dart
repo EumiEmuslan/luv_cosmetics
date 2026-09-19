@@ -1,15 +1,23 @@
 import 'package:flutter/material.dart';
-import 'navigation.dart';
 import 'productmodel.dart';
+import 'order.dart';
+import 'orders_page.dart'; // <-- import your OrdersPage
 
 class OrderManager {
-  static List<Product> orders = [];
+  static final List<Order> orders = [];
 
-  static void addOrders(List<Product> newOrders) {
-    orders.addAll(newOrders);
+  /// Add new products to the FRONT of the list
+  static void addOrders(List<Product> newProducts, String mode) {
+    for (var product in newProducts) {
+      product.paymentMode = mode;
+      orders.insert(0, Order(product)); // timers start here
+    }
   }
 
   static void clear() {
+    for (var order in orders) {
+      order.dispose(); // cancel timers
+    }
     orders.clear();
   }
 
@@ -19,19 +27,16 @@ class OrderManager {
     List<Product> selectedItems,
     String mode,
   ) {
-    for (var item in selectedItems) {
-      item.paymentMode = mode;
-    }
-
-    addOrders(selectedItems);
+    addOrders(selectedItems, mode);
 
     ScaffoldMessenger.of(
       context,
     ).showSnackBar(SnackBar(content: Text("Order placed with $mode")));
 
+    // Navigate to OrdersPage instead of MainNavigation
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (_) => const MainNavigation()),
+      MaterialPageRoute(builder: (_) => const OrdersPage()),
     );
   }
 }
